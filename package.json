@@ -40,7 +40,7 @@
     "jspdf-autotable": "^5.0.2",
     "lucide-react": "^0.482.0",
     "moment": "^2.30.1",
-    "next": "15.0.3",
+    "next": "^15.4.5",
     "next-auth": "^4.24.10",
     "next-themes": "^0.4.3",
     "nodemailer": "^7.0.3",
@@ -58,6 +58,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.10",
     "@tanstack/eslint-plugin-query": "^5.60.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
