@@ -29,6 +29,9 @@ COPY . .
 # Generate Prisma client (if you're using Prisma)
 RUN npx prisma generate
 
+# Debug: kiểm tra file schema.prisma có tồn tại không
+RUN ls -l /app/prisma
+
 # Build Next.js project (this step was missing)
 RUN \
   if [ -f yarn.lock ]; then yarn build; \
