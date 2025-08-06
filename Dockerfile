@@ -19,9 +19,12 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
+
 # Stage: builder - copy source and build the project
 FROM base AS builder
 WORKDIR /app
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

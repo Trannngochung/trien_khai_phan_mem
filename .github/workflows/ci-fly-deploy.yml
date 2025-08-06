@@ -1,4 +1,4 @@
-name: CI/CD Next.js app
+name: CI/CD Build, Test, Deploy & Fly.io
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - main
 
 jobs:
-  build-test-deploy:
+  build-test-deploy-fly:
     runs-on: ubuntu-latest
-
+    concurrency: deploy-group
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,3 +44,11 @@ jobs:
         run: |
           docker tag trien-khai-phan-mem:latest ngochung275/trien-khai-phan-mem:latest
           docker push ngochung275/trien-khai-phan-mem:latest
+
+      # Deploy lên Fly.io
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Deploy to Fly.io
+        run: flyctl deploy --remote-only --release-command-timeout 600
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
