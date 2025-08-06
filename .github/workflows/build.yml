@@ -31,7 +31,7 @@ jobs:
         run: npm run build
 
       - name: Build Docker image
-        run: docker build -t my-next-app:latest .
+        run: docker build -t trien-khai-phan-mem:latest .
 
       # Nếu muốn push lên Docker Hub thì mở phần này:
       - name: Login to Docker Hub
@@ -42,5 +42,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag my-next-app:latest yourdockerhubusername/my-next-app:latest
-          docker push yourdockerhubusername/my-next-app:latest
+          docker tag trien-khai-phan-mem:latest ngochung275/trien-khai-phan-mem:latest
+          docker push ngochung275/trien-khai-phan-mem:latest
