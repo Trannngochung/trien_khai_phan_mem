@@ -34,7 +34,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        run: docker buildx build --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} -t trien-khai-phan-mem:latest .
+        run: docker buildx build --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} -t trien-khai-phan-mem:latest --load .
 
       # Nếu muốn push lên Docker Hub thì mở phần này:
       - name: Login to Docker Hub
